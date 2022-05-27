@@ -1,9 +1,6 @@
 <h1 align="center"> Exercise 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/gate42srl/heyvoice-action/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
-  </a>
   </a>
 </p>
 
@@ -39,17 +36,23 @@ Then you can run the code:
 
 **On Windows powershell:**
 
-Before running, you must set the following environment variable:
+Before running, you must set the following environment variable in the terminal:
 
-- `NODE_CONFIG_DIR=.\src\config`: Tells config module where to find configuration variables (i.e. default.json file)
+- `set NODE_CONFIG_DIR=.\src\config`: Tells config module where to find configuration variables (i.e. default.json file)
 
 Then you can run the code
 
 ```sh
-npm run start-win
+npm run start
 ```
 
 **On Linux:**
+
+Before running, you must set the following environment variable in the terminal:
+
+- `export NODE_CONFIG_DIR=./src/config`: Tells config module where to find configuration variables (i.e. default.json file)
+
+Then you can run the code
 
 ```sh
 npm run start
@@ -58,33 +61,28 @@ npm run start
 
 #### Development Environment
 
+**On Windows powershell:**
+
+Before running, you must set the following environment variable in the terminal:
+
+- `set NODE_CONFIG_DIR=.\src\config`: Tells config module where to find configuration variables (i.e. default.json file)
+
+Then you can run the code
 
 ```sh
 npm run dev
 ```
 
-## Run tests
-
-
-### Setup
-
-
-**On Windows powershell:**
-
-```shell
-$env:GOOGLE_APPLICATION_CREDENTIALS="YOUR/ABSOLUTE/PATH/TO/SERVICE/ACCOUNT/KEY"
-```
-
 **On Linux:**
 
-```shell
-GOOGLE_APPLICATION_CREDENTIALS="YOUR/ABSOLUTE/PATH/TO/SERVICE/ACCOUNT/KEY"
-```
+Before running, you must set the following environment variable in the terminal:
 
-Then you can run the following command:
+- `export NODE_CONFIG_DIR=./src/config`: Tells config module where to find configuration variables (i.e. default.json file)
+
+Then you can run the code
 
 ```sh
-npm run test
+npm run dev
 ```
 
 ## Author
