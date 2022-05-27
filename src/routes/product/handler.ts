@@ -14,8 +14,8 @@ export const retriveHandler = async (
 ): Promise<void> => {
   try {
     const result = (await service.getAllService()) as UserDoc[];
+    res.json("Processing data, it may take a minute to compute all the data");
     await controller.fillUser(result);
-    res.json("success");
   } catch (err) {
     return next(err);
   }

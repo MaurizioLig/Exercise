@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "export NODE_CONFIG_DIR=./src/config && node dist/src/index.js",
-    "dev": "export NODE_CONFIG_DIR=./src/config && nodemon src/index.ts",
-    "start-win": "node dist/src/index.js",
-    "dev-win": "nodemon src/index.ts"
+    "start": "node dist/src/index.js",
+    "dev": "nodemon src/index.ts",
+    "test-win": "set NODE_CONFIG_DIR=./src/config/ && mocha -r ts-node/register 'test/**/*.test.ts'"
   },
   "repository": {
     "type": "git",

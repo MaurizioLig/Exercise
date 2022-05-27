@@ -3,8 +3,6 @@ import cors from "cors";
 import morgan from "morgan";
 import config from "config";
 
-process.env["NODE_CONFIG_DIR"] = ".\\src\\config";
-
 // Import routers
 import router from "../routes/product/routes";
 // Import error middleware
@@ -36,5 +34,9 @@ app.use("/", router);
 app.use(errorMiddleware);
 
 export const startServer = () => {
-  app.listen(port, () => console.log(`Server started on port ${port}`));
+  app
+    .listen(port, () => console.log(`Server started on port ${port}`))
+    .on("error", (error) => {
+      console.log(error);
+    });
 };
