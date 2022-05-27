@@ -14,7 +14,7 @@ export const retriveHandler = async (
 ): Promise<void> => {
   try {
     const result = (await service.getAllService()) as UserDoc[];
-    await controller.saveOnDB(result);
+    await controller.fillUser(result);
     res.json("success");
   } catch (err) {
     return next(err);
@@ -85,6 +85,20 @@ export const deleteUserHandler = async (
   try {
     const id = req.params.id;
     const result = await controller.deleteUser(id);
+    res.json(result);
+  } catch (err) {
+    return next(err);
+  }
+};
+
+// Utility for dev mode
+export const deleteAllHandler = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const result = await controller.deleteAll();
     res.json(result);
   } catch (err) {
     return next(err);

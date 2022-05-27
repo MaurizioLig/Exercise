@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts"
+    "start": "export NODE_CONFIG_DIR=./src/config && node dist/src/index.js",
+    "dev": "export NODE_CONFIG_DIR=./src/config && nodemon src/index.ts",
+    "start-win": "node dist/src/index.js",
+    "dev-win": "nodemon src/index.ts"
   },
   "repository": {
     "type": "git",

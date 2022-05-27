@@ -3,7 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import config from "config";
 
-process.env["NODE_CONFIG_DIR"] = ".\\src\\config";
+//process.env["NODE_CONFIG_DIR"] = ".\\src\\config";
 
 // Import routers
 import router from "../routes/product/routes";

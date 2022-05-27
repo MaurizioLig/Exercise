@@ -7,4 +7,10 @@ export interface UserDoc {
   avatar: string;
   birthday: string;
   isActive: boolean;
+  description: string;
+  lastAccess: {
+    mac: string;
+    ip: string;
+    userAgent: string;
+  };
 }

@@ -9,6 +9,15 @@ const UserSchema = new mongoose.Schema({
   avatar: { type: String, default: "" },
   birthday: { type: String, default: "" },
   isActive: { type: Boolean, default: false },
+  description: { type: String, default: "" },
+  lastAccess: {
+    type: {
+      mac: String,
+      ip: String,
+      userAgent: String,
+    },
+    default: {},
+  },
 });
 
 export const User = mongoose.model("User", UserSchema, "User");

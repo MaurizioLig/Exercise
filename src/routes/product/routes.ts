@@ -6,6 +6,7 @@ import {
   getByIdHandler,
   updateUserHandler,
   deleteUserHandler,
+  deleteAllHandler,
 } from "./handler";
 
 // Init the router
@@ -18,5 +19,6 @@ router.get("/users/:id", getByIdHandler);
 router.post("/users", addListHandler);
 router.patch("/users/:id", updateUserHandler);
 router.delete("/users/:id", deleteUserHandler);
+router.delete("/all", deleteAllHandler);
 
 export default router;

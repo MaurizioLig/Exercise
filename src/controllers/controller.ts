@@ -1,15 +1,15 @@
 import { User } from "../models/user";
 import { UserDoc } from "../types";
-// Import Types
-/* import { MongooseDevice, MongooseUser } from "../types/mongooseTypes"
-import { BodyDevice } from "../types/bodyTypes" */
 
-export const saveOnDB = async (array: UserDoc[]): Promise<void> => {
+// Import services
+import * as service from "../services/user_service";
+
+/* export const saveOnDB = async (array: UserDoc[]): Promise<void> => {
   for (const e in array) {
     const user = new User(array[e]);
     await user.save();
   }
-};
+}; */
 
 export const getAll = async (): Promise<UserDoc[]> => {
   const result = await User.find();
@@ -39,4 +39,16 @@ export const updateUser = async (
 export const deleteUser = async (id: string): Promise<UserDoc> => {
   const result = await User.findByIdAndDelete(id);
   return result;
+};
+
+export const fillUser = async (array: UserDoc[]): Promise<void> => {
+  for (const e in array) {
+    const result = await service.getUserService(array[e].id.toString());
+    let newUser = new User(result);
+    await newUser.save();
+  }
+};
+
+export const deleteAll = async (): Promise<void> => {
+  await User.deleteMany();
 };
