@@ -4,7 +4,7 @@ import morgan from "morgan";
 import config from "config";
 
 // Import routers
-import router from "../routes/product/routes";
+import router from "../routes/user/routes";
 // Import error middleware
 import { errorMiddleware } from "../middleware/error";
 

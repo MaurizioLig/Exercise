@@ -1,7 +1,14 @@
 import express from "express";
+
+// Import middlewares
+import { validateBody } from "../../middleware";
+
+// Import validation functions
+import { validateAddList } from "../../validation";
+
 import {
   getUsersHandler,
-  retriveHandler,
+  retrieveHandler,
   addListHandler,
   getByIdHandler,
   updateUserHandler,
@@ -13,10 +20,10 @@ import {
 const router = express.Router();
 
 // API
-router.get("/retrive-data", retriveHandler);
+router.get("/retrive-data", retrieveHandler);
 router.get("/users", getUsersHandler);
 router.get("/users/:id", getByIdHandler);
-router.post("/users", addListHandler);
+router.post("/users", validateBody(validateAddList), addListHandler);
 router.patch("/users/:id", updateUserHandler);
 router.delete("/users/:id", deleteUserHandler);
 router.delete("/all", deleteAllHandler);
